@@ -55,7 +55,54 @@ function generatePassword(){
       genPassLower()
       console.log(passLength + " Pass Length");
     }
+    
   }
+  // ASKS THE USER IF THEY WOULD LIKE TO USE LOWERCASE CHARACTERS, RETURNS TRUE OR FALSE FOR LATER CHECK FUNCTION
+  function genPassLower(){
+    passLower = window.confirm ("Whould you like to use lowercase characters in your password?");
+    console.log("Using Lowercase: " + passLower);
+    genPassUpper()
+  }
+
+  // ASKS THE USER IF THEY WOULD LIKE TO USE UPPER4CASE CHARACTERS, RETURNS TRUE OR FALSE FOR LATER CHECK FUNCTION
+  function genPassUpper(){
+    passUpper = window.confirm ("Whould you like to use uppercase characters in your password?");
+    console.log("Using Uppercase: " + passUpper);
+    genPassNum()
+  }
+
+  // ASKS THE USER IF THEY WOULD LIKE TO USE NUMERIC CHARACTERS, RETURNS TRUE OR FALSE FOR LATER CHECK FUNCTION
+  function genPassNum() {
+    passNum = window.confirm ("Whould you like to use numbereric characters in your password?");
+    console.log("Using Numbers: " + passNum);
+    genPassSpec()
+  }
+  
+  // ASKS THE USER IF THEY WOULD LIKE TO USE SPECIAL CHARACTERS, RETURNS TRUE OR FALSE FOR LATER CHECK FUNCTION
+  function genPassSpec (){
+    passSpec = window.confirm ("Whould you like to use special characters in your password?");
+    console.log("Using Special: " + passSpec);
+    checkPassChars()
+  }
+
+  // CHECKS THE USER INPUTS TO DETERMINE IF THE MINIMUM CHARACTER CHOICE REQUIREMENTS HAVE BEEN MADE, RETURNS USER TO BEGINNING OF CHOICES IF THEY CHOSE NO CHARACTER TYPES.
+  function checkPassChars(){
+    if (
+      (passLower===Boolean(false)) && 
+      (passUpper===Boolean(false)) &&
+      (passNum===Boolean(false)) &&
+      (passSpec===Boolean(false))
+    )
+    {
+      console.log("Bad Pass");
+      window.alert ("You must chose one character type");
+      genPassLower()
+    } else {
+      console.log("Good Pass");
+      genCharPool();
+    }
+  }
+
 }
 
 
