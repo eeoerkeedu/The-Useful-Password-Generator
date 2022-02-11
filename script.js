@@ -24,7 +24,39 @@ function writePassword() {
   passwordText.value = completePass;
 }
 
+function generatePassword(){
+  
+  // DEFINES THE VARIBLES USED LOCALLY IN THE FUNTION, ALSO RESETS CERTAIN VAULES EACH TIME THE FUNCTION IS RUN TO PREVENT STACKING VAULES.
+  var passLength = 1
+  var passLower = 1
+  var passUpper = 1
+  var passNum = 1
+  var passSpec = 1
+  charPool = []
+  completePass = []
 
+  // LOOPS USERS BACK TO THE BEGINING OF THE FUNTION IF THEIR PASSWORD LENGTH DOES NOT MEET THE REQUIREMENTS.
+  function restartPass(){
+    generatePassword()
+  }
+
+  // ASKS THE USER FOR THEIR DESIRED PASSWORD LENGTH AND RECORDS THE VALUE FOR USE BY THE OTHER FUNCTIONS.
+  function genPassLength(){
+    passLength = window.prompt 
+        ("Please enter a number of characters for your new password in the field below." +"\n"+ "Password Length must be between 8 & 128 Characters");
+    
+    if (passLength < 8) {
+      window.alert("Password Length must be at least 8 Characters");
+      restartPass()
+    } else if (passLength > 128) {
+      window.alert("Password Length must be less than 129 Characters");
+      restartPass()
+    } else {
+      genPassLower()
+      console.log(passLength + " Pass Length");
+    }
+  }
+}
 
 
 
