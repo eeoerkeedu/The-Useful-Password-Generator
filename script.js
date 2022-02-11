@@ -55,7 +55,7 @@ function generatePassword(){
       genPassLower()
       console.log(passLength + " Pass Length");
     }
-    
+
   }
   // ASKS THE USER IF THEY WOULD LIKE TO USE LOWERCASE CHARACTERS, RETURNS TRUE OR FALSE FOR LATER CHECK FUNCTION
   function genPassLower(){
@@ -102,7 +102,50 @@ function generatePassword(){
       genCharPool();
     }
   }
+  
+  // TAKES THE USER INPUTS AND APPLIES THEM TO AN ARRAY WHICH WILL BE PULLED FROM IN THE NEXT FUNCTION
+  function genCharPool(){
+    
+    if (passLower===Boolean(true)){
+      charPool = charPool.concat(lowercase)
+    } else {
+      console.log("Removed lowercase")
+    }
+    
+    if (passUpper===Boolean(true)){
+      charPool = charPool.concat(uppercase)
+    } else {
+      console.log("Removed uppercase")
+    }
+    
+    if (passNum===Boolean(true)){
+      charPool = charPool.concat(number)
+    } else {
+      console.log("Removed number")
+    }
+    
+    if (passSpec===Boolean(true)){
+      charPool = charPool.concat(specChar)
+    } else {
+      console.log("Removed special")
+    }
+    // CALLS NEXT FUNCTION
+    genPass()
+  }
+  
+  // FUNCTION GENERATES PASSWORD FROM GIVEN LENGTH AND CHARARACTERS USING A WHILE LOOP TO WRITE OUT  THE CORRECT NUMBER OF RANDOMIZED CHARACTERS BASED ON GIVEN INPUTS
+  function genPass() {
+    var i = passLength
 
+    while (i>0){
+      
+      completePass += (charPool[Math.floor(Math.random() * charPool.length)]);
+      //count down
+      i--
+    }
+  }
+  // INITIAL FUNTION CALL WHEN BUTTON IS CLICKED TO START THE FUNTION CHAIN.
+  genPassLength()
 }
 
 
