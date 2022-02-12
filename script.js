@@ -24,6 +24,7 @@ function writePassword() {
   passwordText.value = completePass;
 }
 
+
 function generatePassword(){
   
   // DEFINES THE VARIBLES USED LOCALLY IN THE FUNTION, ALSO RESETS CERTAIN VAULES EACH TIME THE FUNCTION IS RUN TO PREVENT STACKING VAULES.
@@ -55,8 +56,8 @@ function generatePassword(){
       genPassLower()
       console.log(passLength + " Pass Length");
     }
-
   }
+  
   // ASKS THE USER IF THEY WOULD LIKE TO USE LOWERCASE CHARACTERS, RETURNS TRUE OR FALSE FOR LATER CHECK FUNCTION
   function genPassLower(){
     passLower = window.confirm ("Whould you like to use lowercase characters in your password?");
@@ -102,8 +103,8 @@ function generatePassword(){
       genCharPool();
     }
   }
-  
-  // TAKES THE USER INPUTS AND APPLIES THEM TO AN ARRAY WHICH WILL BE PULLED FROM IN THE NEXT FUNCTION
+
+    // TAKES THE USER INPUTS AND APPLIES THEM TO AN ARRAY WHICH WILL BE PULLED FROM IN THE NEXT FUNCTION
   function genCharPool(){
     
     if (passLower===Boolean(true)){
@@ -147,9 +148,7 @@ function generatePassword(){
   // INITIAL FUNTION CALL WHEN BUTTON IS CLICKED TO START THE FUNTION CHAIN.
   genPassLength()
 }
-
-
-
+  
 
 // EVENT LISTENER WHEN BUTTON IS CLICKED
 generateBtn.addEventListener("click", function(){
